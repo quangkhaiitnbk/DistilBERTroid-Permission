@@ -69,44 +69,7 @@ Vai trò:
   - TF-IDF + Linear SVM
   - DistilBERTroid-Permission
 
-## 4. Cấu trúc thư mục đề xuất
-
-Khi đưa project lên GitHub, nên tổ chức thư mục như sau:
-
-```text
-DistilBERTroid-Permission/
-│
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── notebooks/
-│   ├── B9D54_10_Tran_Van_Quang_Khai_ATMobile_tren_bo_du_lieu_Android_Permission_Dataset_Kaggle.ipynb
-│   └── B9D54_10_Tran_Van_Quang_Khai_ATMobile_tren_bo_du_lieu_Mendeley.ipynb
-│
-├── data/
-│   └── README.md
-│
-├── models/
-│   └── README.md
-│
-├── results/
-│   ├── figures/
-│   ├── metrics/
-│   └── README.md
-│
-└── docs/
-    ├── paper_original.pdf
-    └── final_report.pdf
-```
-
-Ghi chú:
-
-- Không nên upload trực tiếp dataset lớn hoặc file model quá nặng lên GitHub thường.
-- Có thể đặt dataset/model trên Google Drive, Kaggle, Hugging Face hoặc GitHub Release rồi ghi link trong `data/README.md` và `models/README.md`.
-- Không commit file `kaggle.json`, token API, mật khẩu hoặc khóa truy cập cá nhân.
-
-## 5. Môi trường thực nghiệm
+## 4. Môi trường thực nghiệm
 
 Khuyến nghị chạy trên **Google Colab** với GPU.
 
@@ -125,28 +88,23 @@ openpyxl
 kaggle
 ```
 
-Có thể tạo file `requirements.txt` như sau:
-
-```txt
-pandas
-numpy
-matplotlib
-scikit-learn
-torch
-transformers
-accelerate
-openpyxl
-kaggle
-```
-
-## 6. Hướng dẫn chạy trên Google Colab
+## 5. Hướng dẫn chạy trên Google Colab
 
 ### Bước 1. Mở notebook
 
-Tải project lên GitHub, sau đó mở notebook bằng Google Colab theo một trong hai cách:
+Với notebook Kaggle, truy cập link:
 
-- Cách 1: Mở Google Colab, chọn `File → Open notebook → GitHub`, dán link repository.
-- Cách 2: Upload trực tiếp file `.ipynb` lên Google Colab.
+```text
+[B9D54_10_Tran_Van_Quang_Khai_ATMobile_tren_bo_du_lieu_Android_Permission_Dataset_Kaggle.ipynb]
+(https://colab.research.google.com/drive/1-1RJDSqgHlPcbHX-G67YRg-v2Nab5RwB?usp=sharing)
+```
+
+Với notebook Mendeley, truy cập link:
+
+```text
+[B9D54_10_Tran_Van_Quang_Khai_ATMobile_tren_bo_du_lieu_Mendeley.ipynb]
+(https://colab.research.google.com/drive/1U0YYutbtTXvI9G9mpsqq8TTtPYsTDr2S?usp=sharing)
+```
 
 ### Bước 2. Bật GPU
 
@@ -232,23 +190,14 @@ Các độ đo đánh giá:
 - PR-AUC
 - Confusion matrix
 
-Các hình ảnh nên lưu vào thư mục `results/figures/`:
 
-```text
-train_val_loss.png
-metrics_by_epoch.png
-confusion_matrix.png
-roc_curve.png
-precision_recall_curve.png
-```
+## 6. Kết quả thực nghiệm tóm tắt
 
-## 7. Kết quả thực nghiệm tóm tắt
-
-### 7.1. Kaggle
+### 6.1. Kaggle
 
 Thực nghiệm Kaggle phù hợp để kiểm chứng pipeline tổng thể, bao gồm đọc dữ liệu, tiền xử lý permission, chuyển đổi thành chuỗi văn bản, huấn luyện mô hình và đánh giá kết quả.
 
-### 7.2. Mendeley
+### 6.2. Mendeley
 
 Thực nghiệm Mendeley là thực nghiệm mở rộng với dữ liệu phong phú hơn, bao gồm permission lúc cài đặt, runtime permission và API calls. Kết quả trong báo cáo cho thấy mô hình DistilBERTroid-Permission đạt hiệu quả tốt hơn trên bộ dữ liệu này so với thực nghiệm Kaggle.
 
@@ -264,147 +213,8 @@ Kết quả test trên Mendeley trong báo cáo:
 | ROC-AUC | 0.9908 |
 | PR-AUC | 0.9923 |
 
-## 8. Hướng dẫn tạo nơi lưu trữ project trên GitHub
 
-### Cách 1. Tạo repository bằng giao diện GitHub
-
-1. Đăng nhập GitHub.
-2. Nhấn nút `+` ở góc trên bên phải.
-3. Chọn `New repository`.
-4. Nhập tên repository, ví dụ:
-
-```text
-DistilBERTroid-Permission
-```
-
-5. Nhập mô tả ngắn:
-
-```text
-Android malware detection using permission/API sequences and DistilBERT.
-```
-
-6. Chọn chế độ:
-   - `Public`: nếu cần nộp link cho giảng viên.
-   - `Private`: nếu chưa muốn công khai.
-7. Tích chọn `Add a README file` nếu muốn GitHub tạo sẵn README.
-8. Chọn `.gitignore` là `Python`.
-9. Chọn license nếu muốn, ví dụ `MIT License`.
-10. Nhấn `Create repository`.
-
-### Cách 2. Đưa project có sẵn từ máy tính lên GitHub bằng Git
-
-Mở Git Bash hoặc Terminal tại thư mục project, sau đó chạy:
-
-```bash
-git init
-git add README.md requirements.txt .gitignore notebooks/ docs/ results/
-git commit -m "Initial commit: DistilBERTroid-Permission experiments"
-git branch -M main
-git remote add origin https://github.com/<username>/DistilBERTroid-Permission.git
-git push -u origin main
-```
-
-Thay `<username>` bằng tên tài khoản GitHub của bạn.
-
-Ví dụ:
-
-```bash
-git remote add origin https://github.com/khaitran201120004/DistilBERTroid-Permission.git
-```
-
-### Cách 3. Upload trực tiếp trên GitHub
-
-Nếu chưa quen dùng Git command line:
-
-1. Vào repository vừa tạo.
-2. Chọn `Add file → Upload files`.
-3. Kéo thả các file/thư mục cần nộp:
-   - `README.md`
-   - `requirements.txt`
-   - thư mục `notebooks/`
-   - thư mục `docs/`
-   - thư mục `results/`
-4. Ghi commit message, ví dụ:
-
-```text
-Upload experiment notebooks and README
-```
-
-5. Nhấn `Commit changes`.
-
-## 9. File `.gitignore` khuyến nghị
-
-Tạo file `.gitignore` với nội dung:
-
-```gitignore
-# Python
-__pycache__/
-*.pyc
-.ipynb_checkpoints/
-
-# Dataset and model files
-data/*
-models/*
-*.csv
-*.xlsx
-*.zip
-*.pt
-*.pth
-*.bin
-*.safetensors
-
-# Keep folder notes
-!data/README.md
-!models/README.md
-
-# Secrets
-kaggle.json
-.env
-*.key
-*.pem
-
-# OS
-.DS_Store
-Thumbs.db
-```
-
-## 10. Checklist trước khi nộp link GitHub
-
-Trước khi nộp link GitHub, kiểm tra các mục sau:
-
-- [ ] Repository có tên rõ ràng.
-- [ ] Có file `README.md` mô tả project.
-- [ ] Có đủ notebook thực nghiệm Kaggle và Mendeley.
-- [ ] Có hướng dẫn chạy lại trên Google Colab.
-- [ ] Có `requirements.txt`.
-- [ ] Có thư mục `results/` chứa hình ảnh và kết quả thực nghiệm nếu có.
-- [ ] Có ghi rõ nguồn dataset và cách tải.
-- [ ] Không upload `kaggle.json`, mật khẩu, token API hoặc dữ liệu nhạy cảm.
-- [ ] Nếu không upload model/dataset lớn, cần có link thay thế trong README hoặc file text riêng.
-- [ ] Repository để chế độ `Public` nếu cần nộp link cho giảng viên.
-
-## 11. Gợi ý nội dung file text nộp kèm nếu dùng link GitHub
-
-Có thể tạo file `github_link.txt` với nội dung:
-
-```text
-Họ tên: Trần Văn Quang Khải
-Lớp: B9D54
-Số báo danh: 10
-Môn học: An toàn trên thiết bị di động
-Tên project: DistilBERTroid-Permission
-Link GitHub: https://github.com/<username>/DistilBERTroid-Permission
-
-Ghi chú:
-Project chứa source code thực nghiệm, notebook chạy lại mô hình, hướng dẫn cài đặt,
-hướng dẫn tải dữ liệu và kết quả thực nghiệm phục vụ tiểu luận.
-```
-
-## 12. Lưu ý học thuật
-
-Project này phục vụ mục đích học tập, nghiên cứu và thực nghiệm trong môn học An toàn trên thiết bị di động. Mô hình chỉ sử dụng đặc trưng tĩnh permission/API, do đó chưa thể thay thế các hệ thống phát hiện mã độc thực tế có kết hợp phân tích động, sandbox, chữ ký mã độc và kiểm chứng thủ công.
-
-## 13. Tài liệu tham khảo chính
+## 7. Tài liệu tham khảo chính
 
 1. Chaieb, M., Ghorab, M. A., & Saied, M. A. (2024). *Detecting Android Malware: From Neural Embeddings to Hands-On Validation with BERTroid*.
 2. Android Developers. *Permissions on Android*.
