@@ -95,15 +95,13 @@ kaggle
 Với notebook Kaggle, truy cập link:
 
 ```text
-[B9D54_10_Tran_Van_Quang_Khai_ATMobile_tren_bo_du_lieu_Android_Permission_Dataset_Kaggle.ipynb]
-(https://colab.research.google.com/drive/1-1RJDSqgHlPcbHX-G67YRg-v2Nab5RwB?usp=sharing)
+https://colab.research.google.com/drive/1-1RJDSqgHlPcbHX-G67YRg-v2Nab5RwB?usp=sharing
 ```
 
 Với notebook Mendeley, truy cập link:
 
 ```text
-[B9D54_10_Tran_Van_Quang_Khai_ATMobile_tren_bo_du_lieu_Mendeley.ipynb]
-(https://colab.research.google.com/drive/1U0YYutbtTXvI9G9mpsqq8TTtPYsTDr2S?usp=sharing)
+https://colab.research.google.com/drive/1U0YYutbtTXvI9G9mpsqq8TTtPYsTDr2S?usp=sharing
 ```
 
 ### Bước 2. Bật GPU
